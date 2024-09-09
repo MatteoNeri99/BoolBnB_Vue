@@ -12,6 +12,7 @@ export default  {
           data_di_nascita: '',
           email: '',
           password: '',
+          password_confirmation:'',
           responseMessage:'',
 
         }
@@ -27,7 +28,8 @@ export default  {
           cognome: this.cognome,
           data_di_nascita: this.data_di_nascita,
           email: this.email,
-          password: this.password
+          password: this.password,
+          password_confirmation: this.password_confirmation
         });
 
         // Gestisci la risposta del server
@@ -80,9 +82,9 @@ const count = ref(0)
         <input type="password" class="form-control" id="Password" v-model="password">
       </div>
 
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      <div class="mb-3">
+        <label for="PasswordConferm" class="form-label">Password</label>
+        <input type="password" class="form-control" id="PasswordConferm" v-model="password_confirmation">
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>
