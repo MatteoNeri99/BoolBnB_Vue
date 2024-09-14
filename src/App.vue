@@ -1,10 +1,10 @@
 <script>
-import RegistrazioneApp from './components/RegistrazioneApp.vue';
+import HomePage from './components/HomePage.vue';
 
 
 export default  {
     components:{
-      RegistrazioneApp,
+      HomePage,
 
     },
 
@@ -13,17 +13,18 @@ export default  {
 
             }
         },
+        
 
 }
 </script>
 
 <template>
 
-<RegistrazioneApp> </RegistrazioneApp>
+<HomePage> </HomePage>
  
 </template>
 
-<style lang="scss">
+<style lang="scss" >
 @use '../node_modules/bootstrap/scss/bootstrap.scss';
 
 
