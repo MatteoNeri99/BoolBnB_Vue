@@ -14,7 +14,6 @@ export default  {
           password: '',
           password_confirmation:'',
           responseMessage:'',
-
         }
 
 
@@ -83,7 +82,11 @@ const count = ref(0)
       </div>
 
       <div class="mb-3">
+<<<<<<< HEAD
         <label for="PasswordConferm" class="form-label">Conferma Password</label>
+=======
+        <label for="PasswordConferm" class="form-label">Conferma password</label>
+>>>>>>> 2cba7845ee876bfa64b23371d48393c0a9d859ec
         <input type="password" class="form-control" id="PasswordConferm" v-model="password_confirmation">
       </div>
 
