@@ -27,7 +27,7 @@ export default  {
 
 
 <HomePage> </HomePage>
-<ShowPage></ShowPage>
+
 <HeaderApp> </HeaderApp>
 
 </template>
