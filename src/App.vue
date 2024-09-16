@@ -4,6 +4,7 @@ import HeaderApp from './components/HeaderApp.vue';
 import ShowPage from './components/ShowPage.vue';
 
 
+
 export default  {
     components:{
       HomePage,
@@ -24,10 +25,10 @@ export default  {
 
 <template>
 
+
 <HomePage> </HomePage>
 <ShowPage></ShowPage>
 <HeaderApp> </HeaderApp>
-
 
 </template>
 

@@ -1,6 +1,12 @@
-import { createApp } from 'vue';
-import App from './App.vue';
+
+
+
+import { createApp } from 'vue'
+import './style.scss'
+import App from './App.vue'
 import router from './router';  // Importa il router
+import *as boostrap from 'bootstrap'
+
 
 const app = createApp(App);
 

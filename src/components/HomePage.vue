@@ -14,6 +14,7 @@ export default {
         .then((response) => {
           console.log(response.data.results);
           this.apartments = response.data.results;  // Popola la lista degli appartamenti
+
         })
         .catch((error) => {
           console.log(error);  // Gestisci l'errore
