@@ -12,7 +12,7 @@ export default  {
             Metri_quadrati:'',
             Prezzo:'',
             Indirizzo:'',
-            services:'',
+            services:[],
           
         }
 
@@ -86,11 +86,11 @@ created() {
                     </div>
                 </div>
 
-                <div class="dropdown mb-2">
+                <div class="dropdown my-2">
                     <button class="btn btn-secondary dropdown-toggle w-100 bg-dark" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                         Seleziona Servizi
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
                         <li><label class="dropdown-item"><input type="checkbox" v-model="services" name="services[]"  value="1"> WiFi gratuito</label></li>
                         <li><label class="dropdown-item"><input type="checkbox" v-model="services" name="services[]" value="2"> Colazione inclusa</label></li>
                         <li><label class="dropdown-item"><input type="checkbox" v-model="services" name="services[]" value="3"> Aria condizionata</label></li>

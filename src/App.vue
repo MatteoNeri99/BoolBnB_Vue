@@ -3,6 +3,7 @@ import HomePage from './components/HomePage.vue';
 import HeaderApp from './components/HeaderApp.vue';
 
 
+
 export default  {
     components:{
       HomePage,
