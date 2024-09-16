@@ -1,20 +1,40 @@
+
 <script>
 import axios from 'axios';
 
-export default {
-  props: '',
-  data() {
-    return {
-      apartments: [],  // Dati vuoti inizialmente, verranno popolati tramite API
-    };
-  },
-  methods: {
-    getApartments() {
-      axios.get('http://127.0.0.1:8000/api/apartments')
-        .then((response) => {
-          console.log(response.data.results);
-          this.apartments = response.data.results;  // Popola la lista degli appartamenti
+export default{
+  data(){
+        return{
+            apartments:[],
+          
         }
+
+
+      },
+      methods: {
+        getApartments (){axios.get('http://127.0.0.1:8000/api/apartments', {
+        params: {
+        
+        }
+        })
+        .then((response)=> {
+            console.log(response.data);
+            this.apartments  = response.data.results;
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+       },
+       created(){
+
+        this.getApartments();
+
+        
+       }
+       
+      
+   }
+}
 
 </script>
 

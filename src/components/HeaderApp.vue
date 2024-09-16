@@ -15,7 +15,7 @@ export default  {
             Indirizzo:'',
             services:[],
           
-        }
+        }   
 
 
       },

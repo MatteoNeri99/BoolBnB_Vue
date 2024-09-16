@@ -25,10 +25,10 @@ export default  {
 
 <template>
 
-
+<HeaderApp> </HeaderApp>
 <HomePage> </HomePage>
 
-<HeaderApp> </HeaderApp>
+
 
 </template>
 
