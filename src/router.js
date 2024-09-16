@@ -2,6 +2,8 @@
     import { createRouter, createWebHistory } from 'vue-router';
     import HomePage from './components/HomePage.vue';
     import ShowPage from './components/ShowPage.vue';
+    import SearchResults from './components/SearchResults.vue';
+
 
     const routes = [
     {
@@ -14,7 +16,6 @@
         path: '/apartment/:id',
         name: 'apartment-details',
         component: ShowPage,
-        props: true, // Assicurati che props sia abilitato per passare l'id
     },
     ];
 
