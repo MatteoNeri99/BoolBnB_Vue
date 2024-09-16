@@ -1,19 +1,8 @@
-const path = require('path');
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
 
+// https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [
-        laravel({
-            input: ['resources/scss/app.scss', 'resources/js/app.js'],
-            refresh: true,
-        }),
-    ],
-    resolve: {
-        alias: {
-        '-resources': '/resources/',
-        '-bootstrap': path.resolve(__dirname, 'node_modules/bootstrap')
-        }
-    },
-});
+  plugins: [vue()],
+})
 
