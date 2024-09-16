@@ -33,12 +33,11 @@ export default{
 
     } 
 }
-
 </script>
+
 
 <template>
   <div class="container">
-    <h1 class="text-center my-5">Lista Appartamenti</h1>
     <div class="row flex-column align-items-center w-100">
       <div class="col-md-4 mb-4 w-100" v-for="apartment in apartments" :key="apartment.id">
         <div class="card appartamenti w-100">
@@ -56,7 +55,6 @@ export default{
             <router-link :to="{ name: 'apartment-details', params: { id: apartment.id } }" class="btn btn-primary">
               Mostra dettagli
             </router-link>
-
           </div>
         </div>
       </div>
@@ -64,10 +62,6 @@ export default{
   </div>
 </template>
 
+
 <style lang="scss" scoped>
-
-
-
-
-
 </style>
