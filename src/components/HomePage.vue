@@ -15,6 +15,29 @@ export default {
           console.log(response.data.results);
           this.apartments = response.data.results;  // Popola la lista degli appartamenti
 
+<<<<<<< messages_vue
+  data(){
+        return{
+            apartments:[],
+          
+        }
+
+
+      },
+      methods: {
+        getApartments (){axios.get('http://127.0.0.1:8000/api/apartments', {
+        params: {
+        
+        }
+        })
+        .then((response)=> {
+            console.log(response.data);
+            this.apartments  = response.data.results;
+        })
+        .catch(function (error) {
+            console.log(error);
+=======
+>>>>>>> main
         })
         .catch((error) => {
           console.log(error);  // Gestisci l'errore
