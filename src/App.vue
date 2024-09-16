@@ -1,32 +1,24 @@
 <script>
-import HomePage from './components/HomePage.vue';
+
 import HeaderApp from './components/HeaderApp.vue';
-import ShowPage from './components/ShowPage.vue';
 
 
 
-export default  {
-    components:{
-      HomePage,
-      HeaderApp,
-      ShowPage,
 
-    },
 
-    data(){
-            return{
 
-            }
-        },
-        
+export default {
+  components: {
+    HeaderApp,
+  },
+};
 
-}
 </script>
 
 <template>
 
-<HeaderApp> </HeaderApp>
-<HomePage> </HomePage>
+  <HeaderApp></HeaderApp>
+  <router-view></router-view>
 
 
 
