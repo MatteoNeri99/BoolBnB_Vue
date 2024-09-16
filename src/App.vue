@@ -21,9 +21,9 @@ export default  {
 </script>
 
 <template>
-
-<HomePage> </HomePage>
 <HeaderApp> </HeaderApp>
+<HomePage> </HomePage>
+
  
 </template>
 
