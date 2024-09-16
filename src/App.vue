@@ -1,10 +1,12 @@
 <script>
 import HomePage from './components/HomePage.vue';
+import HeaderApp from './components/HeaderApp.vue';
 
 
 export default  {
     components:{
       HomePage,
+      HeaderApp,
 
     },
 
@@ -21,6 +23,7 @@ export default  {
 <template>
 
 <HomePage> </HomePage>
+<HeaderApp> </HeaderApp>
  
 </template>
 
