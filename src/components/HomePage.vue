@@ -17,23 +17,21 @@ export default{
         
         }
         })
-        .then((response)=> {
+        .then((response) => {
             console.log(response.data);
-            this.apartments  = response.data.results;
+            this.apartments = response.data.results;
         })
         .catch(function (error) {
             console.log(error);
         })
        },
-       created(){
-
-        this.getApartments();
-
-        
-       }
-       
       
-   }
+      
+   },
+   created(){
+      this.getApartments();
+
+    } 
 }
 
 </script>

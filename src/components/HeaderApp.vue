@@ -1,53 +1,49 @@
-    <script >
-    import axios from 'axios';
+<script >
+import axios from 'axios';
 
 
-export default  {
-    
-
-  data(){
-        return{
-            Letti:'',
-            Stanze:'',
-            Bagni:'',
-            Metri_quadrati:'',
-            Prezzo:'',
-            Indirizzo:'',
-            services:[],
-          
-        }   
-
-
-      },
-      methods: {
-        apartmentSearch (){axios.get('http://127.0.0.1:8000/api/apartments/search', {
-        params: {
-            Letti: this.Letti,
-            Stanze: this.Stanze,
-            Bagni: this.Bagni,
-            Metri_quadrati: this.Metri_quadrati,
-            Prezzo: this.Prezzo,
-            Indirizzo: this.Indirizzo,
+    export default  {
         
-        }
-        })
-        .then((response)=> {
-            console.log(response.data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
-        .finally(function () {
-            // always executed
-        })
-        }
 
-    
-   
-    
-}
+    data(){
+            return{
+                Letti:'',
+                Stanze:'',
+                Bagni:'',
+                Metri_quadrati:'',
+                Prezzo:'',
+                Indirizzo:'',
+                services:[],
+            
+            }   
 
-}
+
+        },
+        methods: {
+            apartmentSearch (){axios.get('http://127.0.0.1:8000/api/apartments/search', {
+            params: {
+                Letti: this.Letti,
+                Stanze: this.Stanze,
+                Bagni: this.Bagni,
+                Metri_quadrati: this.Metri_quadrati,
+                Prezzo: this.Prezzo,
+                Indirizzo: this.Indirizzo,
+            
+            }
+            })
+            .then((response)=> {
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            })
+            }   
+    }
+
+    }
 
 </script >
 <template>

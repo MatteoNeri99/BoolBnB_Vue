@@ -8,7 +8,7 @@
         path: '/',
         name: 'home',
         component: HomePage,
-        props: true, // Assicurati che props sia abilitato per passare l'id
+       
     },
     {
         path: '/apartment/:id',

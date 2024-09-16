@@ -1,23 +1,3 @@
-<template>
-  <!-- Form per inviare il messaggio -->
-  <div>
-    <h2>Invia un messaggio al proprietario</h2>
-    <form @submit.prevent="sendMessage">
-      <div>
-        <label for="email">La tua email:</label>
-        <input v-model="Mail" type="email" id="email" required maxlength="50">
-      </div>
-      <div>
-        <label for="message">Messaggio:</label>
-        <textarea v-model="Testo" id="message" required></textarea>
-      </div>
-      <!-- Invio fisso al'appartamento ID 1 -->
-      <button type="submit">
-        Invia Messaggio per Appartamento ID: 1
-      </button>
-    </form>
-  </div>
-</template>
 
 <script>
 import axios from 'axios';
@@ -52,6 +32,27 @@ export default {
   }
 }
 </script>
+
+<template>
+  <!-- Form per inviare il messaggio -->
+  <div>
+    <h2>Invia un messaggio al proprietario</h2>
+    <form @submit.prevent="sendMessage">
+      <div>
+        <label for="email">La tua email:</label>
+        <input v-model="Mail" type="email" id="email" required maxlength="50">
+      </div>
+      <div>
+        <label for="message">Messaggio:</label>
+        <textarea v-model="Testo" id="message" required></textarea>
+      </div>
+      <!-- Invio fisso al'appartamento ID 1 -->
+      <button type="submit">
+        Invia Messaggio per Appartamento ID: 1
+      </button>
+    </form>
+  </div>
+</template>
 
 
 
