@@ -5,12 +5,6 @@ import HeaderApp from './components/HeaderApp.vue';
 import ShowPage from './components/ShowPage.vue';
 import { RouterView } from 'vue-router';
 
-
-
-
-
-
-
 export default {
   components: {
     HeaderApp,
