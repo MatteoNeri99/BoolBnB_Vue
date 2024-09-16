@@ -3,7 +3,7 @@ import HomePage from './components/HomePage.vue';
 import HeaderApp from './components/HeaderApp.vue';
 import ShowPage from './components/ShowPage.vue';
 import NavApp from './components/NavApp.vue';
-
+import { RouterView } from 'vue-router';
 
 export default  {
     components:{
@@ -24,9 +24,12 @@ export default  {
 </script>
 
 <template>
+
 <NavApp/>
 <HeaderApp/>
 <HomePage/>
+<router-view/>
+
 
 </template>
 
