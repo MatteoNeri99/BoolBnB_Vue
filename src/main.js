@@ -1,5 +1,14 @@
+
+
+
 import { createApp } from 'vue'
 import './style.scss'
 import App from './App.vue'
+import router from './router';  // Importa il router
+import *as boostrap from 'bootstrap'
 
-createApp(App).mount('#app')
+
+const app = createApp(App);
+
+app.use(router);  // Usa il router nell'applicazione
+app.mount('#app');
