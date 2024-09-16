@@ -1,30 +1,32 @@
-    <script>
-    import axios from 'axios';
+<script>
+import axios from 'axios';
 
-    export default {
-    data() {
-        return {
-        apartment: {}, 
-
-        };
-    },
-        methods: {
-        getApartments(id) {
-        axios.get(`http://127.0.0.1:8000/api/apartments/${id}`)
-            .then((response) => {
-            console.log(response.data.results);
-            this.apartments = response.data.results;  // Popola la lista degli appartamenti
-            })
-            .catch((error) => {
-            console.log(error);  // Gestisci l'errore
-            });
-        },
-    },
-    created() {
-        this.getApartments(this.$route.params.id);  // Chiama l'API al caricamento della pagina
-    },
+export default {
+  props: ['id'], // Riceve l'ID come prop
+  data() {
+    return {
+      apartment: {},
     };
-    </script>
+  },
+  methods: {
+    getApartment(id) {
+      axios.get(`http://127.0.0.1:8000/api/apartments/${id}`)
+        .then((response) => {
+          console.log(response.data); // Verifica la struttura dei dati
+          this.apartment = response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+  created() {
+    this.getApartment(this.id); // Usa l'ID passato come prop
+  },
+};
+</script>
+
+
 
 
     <template>

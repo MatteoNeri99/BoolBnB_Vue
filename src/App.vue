@@ -2,15 +2,15 @@
 import HomePage from './components/HomePage.vue';
 import HeaderApp from './components/HeaderApp.vue';
 import ShowPage from './components/ShowPage.vue';
-
-
+import NavApp from './components/NavApp.vue';
+import { RouterView } from 'vue-router';
 
 export default  {
     components:{
       HomePage,
       HeaderApp,
       ShowPage,
-
+      NavApp,
     },
 
     data(){
@@ -25,9 +25,10 @@ export default  {
 
 <template>
 
-<HeaderApp> </HeaderApp>
-<HomePage> </HomePage>
-
+<NavApp/>
+<HeaderApp/>
+<HomePage/>
+<router-view/>
 
 
 </template>
