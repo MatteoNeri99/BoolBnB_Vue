@@ -11,7 +11,7 @@ import { loadGoogleMapsScript, initializeAutocomplete } from '../googleApi';
                     Bagni:'',
                     Metri_quadrati:'',
                     Prezzo:'',
-                    Indirizzo:'',
+                    indirizzo:'',
                     radius:'',
                     services:[],
                 
@@ -27,7 +27,7 @@ import { loadGoogleMapsScript, initializeAutocomplete } from '../googleApi';
                     Bagni: this.Bagni,
                     Metri_quadrati: this.Metri_quadrati,
                     Prezzo: this.Prezzo,
-                    Indirizzo: this.Indirizzo,
+                    indirizzo: this.indirizzo,
                     radius:this.radius,
                 
                 }
@@ -126,7 +126,7 @@ import { loadGoogleMapsScript, initializeAutocomplete } from '../googleApi';
                     <nav class="navbar navbar-custom bg-body-tertiary bg-primary border-radius" data-bs-theme="dark">
                         <div class="container-fluid">
                             <div class="d-flex w-100">
-                                <input v-model="Indirizzo" class="form-control me-2 searchbar border-radius" id="autocomplete" name="indirizzo" type="search" placeholder="Inserisci un indirizzo" aria-label="Search">
+                                <input v-model="indirizzo" class="form-control me-2 searchbar border-radius" id="autocomplete" name="indirizzo" type="search" placeholder="Inserisci un indirizzo" aria-label="Search">
                             </div>
                         </div>
                     </nav>
