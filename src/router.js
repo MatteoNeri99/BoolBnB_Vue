@@ -1,9 +1,11 @@
 
     import { createRouter, createWebHistory } from 'vue-router';
-    import HomePage from './components/ApartmentsList.vue';
-    import ShowPage from './components/ApartmentCard.vue';
+    import ApartmentsList from './components/ApartmentsList.vue';
+    import ApartmentCard from './components/ApartmentCard.vue';
     import AppHomepage from './pages/AppHomepage.vue';
     import AppSearchResults from './pages/AppSearchResults.vue';
+    import ProvaRicerca from './components/ProvaRicerca.vue';
+
 
     
 
@@ -30,4 +32,3 @@ routes,
 });
 
 export default router;
-

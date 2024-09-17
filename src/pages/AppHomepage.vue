@@ -1,10 +1,12 @@
 <script>
 import HeaderApp from '../components/HeaderApp.vue';
+import ProvaRicerca from '../components/ProvaRicerca.vue';
 import { RouterView } from 'vue-router';
 
 export default  {
     components:{
       HeaderApp,
+      ProvaRicerca
     },
 
     data(){
@@ -20,8 +22,9 @@ export default  {
 <template>
 
 
-<HeaderApp/>
+<!-- <HeaderApp/> -->
 <!-- inserire dati come :contatti,logo,p.iva,img(casa) -->
+<ProvaRicerca/>
 <H1>AppHomepage</H1> 
 
 

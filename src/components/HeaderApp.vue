@@ -91,12 +91,12 @@ import { loadGoogleMapsScript, initializeAutocomplete } from '../googleApi';
                         <label for="prezzo">Prezzo (€)</label>
                         <input type="number" class="form-control" id="prezzo" v-model="Prezzo" placeholder="Prezzo massimo">
                         </div>
-                        <!-- Campo per il raggio di ricerca
+                        Campo per il raggio di ricerca
                         <div class="col-md-2">
                             <label for="radius" class="form-label">Raggio di ricerca (km)</label>
                             <input type="number" class="form-control" name="radius" id="radius" min="1" max="20" value="20" placeholder="20 km" v-model="radius">
                             <small class="form-text text-muted">Il raggio di ricerca può essere modificato solo per ridurre il valore.</small>
-                        </div> -->
+                        </div>
                     </div>
 
                     <div class="container">
@@ -134,19 +134,9 @@ import { loadGoogleMapsScript, initializeAutocomplete } from '../googleApi';
                         </div>
                     </div>
                     
-                   
-                                
-                           
                     <button @click.prevent=" apartmentSearch" class="btn btn-primary">Cerca</button>
                 </form>
 
         </header>
     
 </template>
-
-
-
-<style lang="scss">
-</style>
-
-
