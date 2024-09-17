@@ -6,6 +6,7 @@
     import LoginApp from './components/LoginApp.vue';
     import RegisterApp from './components/RegisterApp.vue';
     import NavApp from './components/NavApp.vue';
+    import Message from './components/Message.vue';
     const routes = [
     {
         path: '/',
@@ -32,6 +33,11 @@
         component: [RegisterApp, NavApp],
         props: true,
     },
+    {
+        path: '/message',
+        name: 'Message',
+        component: Message,
+      },
     ];
 
 const router = createRouter({

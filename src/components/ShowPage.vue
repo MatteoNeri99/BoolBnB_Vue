@@ -50,10 +50,15 @@ export default {
             <div class="card-footer">
                 <router-link to="/" class="btn btn-primary">Torna alla lista appartamenti</router-link>
             </div>
+            <div class="card-footer">
+                <router-link to="/message" class="btn btn-primary">Invia un messagio al proprietario</router-link>
+            </div>
             </div>
         </article>
         </div>
     </div>
+
+    
     </template>
 
     <style lang="scss" scoped>

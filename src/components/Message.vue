@@ -1,37 +1,35 @@
-
 <script>
 import axios from 'axios';
 
 export default {
+  props: ['id'], // Accetta l'ID dell'appartamento come prop
   data() {
     return {
-      Mail: '',       // Email dell'utente
-      Testo: '',      // Messaggio dell'utente
+      Mail: '',
+      Testo: '',
     };
   },
   methods: {
-    // Funzione per inviare il messaggio
     sendMessage() {
-      // Effettua la richiesta POST per inviare il messaggio all'appartamento con ID 1
       axios.post('http://127.0.0.1:8000/api/messages', {
-        apartment_id: 1, // ID fisso dell'appartamento
+        apartment_id: this.id, // Usa l'ID passato
         Mail: this.Mail,
         Testo: this.Testo,
       })
       .then(response => {
         alert('Messaggio inviato con successo!');
-        // Reset dei campi dopo l'invio del messaggio
         this.Mail = '';
         this.Testo = '';
       })
       .catch(error => {
         console.error(error.response.data);
-        alert('Errore nell\'invio del messaggio.');
+        alert('Errore nell invio del messaggio.');
       });
-    }
-  }
-}
+    },
+  },
+};
 </script>
+
 
 <template>
   <!-- Form per inviare il messaggio -->
@@ -48,7 +46,7 @@ export default {
       </div>
       <!-- Invio fisso al'appartamento ID 1 -->
       <button type="submit">
-        Invia Messaggio per Appartamento ID: 1
+        Invia Messaggio al proprietario
       </button>
     </form>
   </div>
