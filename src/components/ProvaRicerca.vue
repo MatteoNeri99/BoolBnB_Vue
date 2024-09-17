@@ -97,14 +97,13 @@
   
           if (response.data.success) {
             // Se la risposta è positiva, aggiorna i risultati degli appartamenti
-            this.apartments = response.data.apartments;
+            console.log(response);
           } else {
             // Altrimenti, mostra un errore
-            this.error = response.data.message;
+            console.log(response);
           }
         } catch (error) {
           // Gestisci errori
-          this.error = error.response ? error.response.data.message : 'Errore nella ricerca degli appartamenti.';
         }
       }
     },
