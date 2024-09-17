@@ -12,6 +12,7 @@ import { loadGoogleMapsScript, initializeAutocomplete } from '../googleApi';
                     Metri_quadrati:'',
                     Prezzo:'',
                     Indirizzo:'',
+                    radius:'',
                     services:[],
                 
                 }   
@@ -27,6 +28,7 @@ import { loadGoogleMapsScript, initializeAutocomplete } from '../googleApi';
                     Metri_quadrati: this.Metri_quadrati,
                     Prezzo: this.Prezzo,
                     Indirizzo: this.Indirizzo,
+                    radius:this.radius,
                 
                 }
                 })
@@ -83,7 +85,7 @@ import { loadGoogleMapsScript, initializeAutocomplete } from '../googleApi';
                         <!-- Campo per il raggio di ricerca -->
                         <div class="col-md-2">
                             <label for="radius" class="form-label">Raggio di ricerca (km)</label>
-                            <input type="number" class="form-control" name="radius" id="radius" min="1" max="20" value="20" placeholder="20 km">
+                            <input type="number" class="form-control" name="radius" id="radius" min="1" max="20" value="20" placeholder="20 km" v-model="radius">
                             <small class="form-text text-muted">Il raggio di ricerca può essere modificato solo per ridurre il valore.</small>
                         </div>
                     </div>
