@@ -5,7 +5,7 @@ export default {
   props: ['id'], // Riceve l'ID come prop
   data() {
     return {
-      apartment: {},
+      apartment: [],
     };
   },
   methods: {

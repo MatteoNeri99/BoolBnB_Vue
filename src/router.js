@@ -17,7 +17,7 @@
         path: '/apartment/:id',
         name: 'apartment-details',
         component: ShowPage,
-        props: true, // Assicurati che props sia abilitato per passare l'id
+        props: true, 
     },
     {
         path: '/login',

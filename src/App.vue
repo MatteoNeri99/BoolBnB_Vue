@@ -27,7 +27,7 @@ export default  {
 
 <NavApp/>
 <HeaderApp/>
-<HomePage/>
+
 <router-view/>
 
 
