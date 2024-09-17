@@ -12,8 +12,8 @@ export default {
     getApartment(id) {
       axios.get(`http://127.0.0.1:8000/api/apartments/${id}`)
         .then((response) => {
-          console.log(response.data); // Verifica la struttura dei dati
-          this.apartment = response.data;
+          console.log(response.data.results); // Verifica la struttura dei dati
+          this.apartment = response.data.results;
         })
         .catch((error) => {
           console.log(error);
