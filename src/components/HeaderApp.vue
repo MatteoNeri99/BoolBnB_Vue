@@ -80,10 +80,12 @@ import { loadGoogleMapsScript, initializeAutocomplete } from '../googleApi';
                         <label for="prezzo">Prezzo (€)</label>
                         <input type="number" class="form-control" id="prezzo" v-model="Prezzo" placeholder="Prezzo massimo">
                         </div>
-                        <!-- <div class="form-group ">
-                        <label for="indirizzo">Indirizzo</label>
-                        <input type="text" class="form-control" id="indirizzo" v-model="Indirizzo" placeholder="Inserisci indirizzo">
-                        </div> -->
+                        <!-- Campo per il raggio di ricerca -->
+                        <div class="col-md-2">
+                            <label for="radius" class="form-label">Raggio di ricerca (km)</label>
+                            <input type="number" class="form-control" name="radius" id="radius" min="1" max="20" value="20" placeholder="20 km">
+                            <small class="form-text text-muted">Il raggio di ricerca può essere modificato solo per ridurre il valore.</small>
+                        </div>
                     </div>
 
                     <div class="dropdown my-2">
