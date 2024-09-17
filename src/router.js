@@ -4,8 +4,9 @@
     import ShowPage from './components/ApartmentCard.vue';
     import AppHomepage from './pages/AppHomepage.vue';
     import SearchResults from './components/SearchResults.vue';
-import AppSearchResults from './pages/AppSearchResults.vue';
+
     
+
     const routes = [
     {
         path: '/homepage',
