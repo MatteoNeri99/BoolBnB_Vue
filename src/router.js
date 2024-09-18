@@ -37,6 +37,7 @@
         path: '/message',
         name: 'Message',
         component: Message,
+        props: true,
       },
     ];
 

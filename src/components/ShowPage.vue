@@ -51,7 +51,10 @@ export default {
                 <router-link to="/" class="btn btn-primary">Torna alla lista appartamenti</router-link>
             </div>
             <div class="card-footer">
-                <router-link to="/message" class="btn btn-primary">Invia un messagio al proprietario</router-link>
+                <router-link :to="{ name: 'Message', params: { id: apartment.id } }" class="btn btn-primary">
+                    Invia un messaggio al proprietario
+                </router-link>
+
             </div>
             </div>
         </article>

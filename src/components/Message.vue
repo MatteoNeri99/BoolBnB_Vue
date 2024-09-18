@@ -7,28 +7,45 @@ export default {
     return {
       Mail: '',
       Testo: '',
+      apartment: null, // Per memorizzare i dettagli dell'appartamento
     };
   },
-  methods: {
-    sendMessage() {
-      axios.post('http://127.0.0.1:8000/api/messages', {
-        apartment_id: this.id, // Usa l'ID passato
-        Mail: this.Mail,
-        Testo: this.Testo,
-      })
-      .then(response => {
-        alert('Messaggio inviato con successo!');
-        this.Mail = '';
-        this.Testo = '';
-      })
-      .catch(error => {
-        console.error(error.response.data);
-        alert('Errore nell invio del messaggio.');
-      });
+  created() {
+    this.getApartment(this.id); // Usa l'ID passato come prop per chiamare l'API
+},
+methods: {
+    getApartment(id) {
+        // Usa GET, non POST, per ottenere i dettagli di un appartamento
+        axios.get(`http://127.0.0.1:8000/api/apartments/${id}`)
+        .then(response => {
+            this.apartment = response.data.results; // Assicurati di controllare la struttura dei dati
+            console.log('Dettagli Appartamento:', this.apartment);
+        })
+        .catch(error => {
+            console.error('Errore nel caricamento dell\'appartamento:', error);
+        });
     },
-  },
+    sendMessage() {
+        console.log('ID Appartamento:', this.id);
+        axios.post('http://127.0.0.1:8000/api/messages', {
+            apartment_id: this.id,   // Questo è corretto
+            Mail: this.Mail,         // Usa 'Mail' con la maiuscola
+            Testo: this.Testo,       // Usa 'Testo' con la maiuscola
+        })
+        .then(response => {
+            alert('Messaggio inviato con successo!');
+            this.Mail = '';
+            this.Testo = '';
+        })
+        .catch(error => {
+            console.error('Errore nella richiesta:', error.response.data); // Stampa gli errori per diagnosi
+            alert('Errore nell\'invio del messaggio.');
+        });
+    }
+}
 };
 </script>
+
 
 
 <template>
@@ -46,7 +63,7 @@ export default {
       </div>
       <!-- Invio fisso al'appartamento ID 1 -->
       <button type="submit">
-        Invia Messaggio al proprietario
+        Invia messaggio al proprietario
       </button>
     </form>
   </div>
