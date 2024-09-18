@@ -22,21 +22,34 @@
             </div>
             <!-- Form di invio messaggio -->
             <div class="card-footer">
-              <h2>Invia un messaggio al proprietario</h2>
-              <form @submit.prevent="sendMessage">
-                <div>
-                  <label for="email">La tua email:</label>
-                  <input v-model="Mail" type="email" id="email" required maxlength="50" :readonly="isLoggedIn">
-                </div>
-                <div>
-                  <label for="message">Messaggio:</label>
-                  <textarea v-model="Testo" id="message" required></textarea>
-                </div>
-                <button type="submit">
-                  Invia messaggio al proprietario
-                </button>
-              </form>
-            </div>
+            <h2>Invia un messaggio al proprietario</h2>
+            <form @submit.prevent="sendMessage">
+              <div class="mb-3">
+                <label for="emailInput" class="form-label">Indirizzo Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="emailInput"
+                  aria-describedby="emailHelp"
+                  v-model="Mail"
+                  :readonly="isLoggedIn"
+                  required
+                  maxlength="50"
+                >
+                
+              </div>
+              <div class="mb-3">
+                <label for="messageInput" class="form-label">Messaggio</label>
+                <textarea
+                  class="form-control"
+                  id="messageInput"
+                  v-model="Testo"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Invia Messaggio</button>
+            </form>
+          </div>
           </div>
         </article>
       </div>

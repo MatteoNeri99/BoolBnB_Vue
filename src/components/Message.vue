@@ -1,74 +1,90 @@
+<template>
+  <!-- Bootstrap-styled form -->
+  <form @submit.prevent="sendMessage">
+    <div class="mb-3">
+      <label for="emailInput" class="form-label">Indirizzo Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="emailInput"
+        aria-describedby="emailHelp"
+        v-model="Mail"
+        :readonly="isLoggedIn"
+        required
+        maxlength="50"
+      >
+      <div id="emailHelp" class="form-text">
+        Non condivideremo mai la tua email con nessun altro.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="messageInput" class="form-label">Messaggio</label>
+      <textarea
+        class="form-control"
+        id="messageInput"
+        v-model="Testo"
+        required
+      ></textarea>
+    </div>
+    <!-- Opzionale: aggiungi una checkbox se necessario -->
+    <!--
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    -->
+    <button type="submit" class="btn btn-primary">Invia Messaggio</button>
+  </form>
+</template>
+
 <script>
 import axios from 'axios';
 
 export default {
-  props: ['id'], // Accetta l'ID dell'appartamento come prop
+  props: ['id'], // Riceve l'ID dell'appartamento come prop
   data() {
     return {
       Mail: '',
       Testo: '',
-      apartment: null, // Per memorizzare i dettagli dell'appartamento
+      isLoggedIn: false, // Indica se l'utente è loggato
     };
   },
-  created() {
-    this.getApartment(this.id); // Usa l'ID passato come prop per chiamare l'API
-},
-methods: {
-  getApartment(id) {
-      axios.get(`http://127.0.0.1:8000/api/apartments/${id}`)
-        .then((response) => {
-          console.log(response.data.results); // Verifica la struttura dei dati
-          this.apartment = response.data.results;
+  methods: {
+    getUserEmail() {
+      // Tenta di ottenere l'email dell'utente loggato
+      axios.get('http://127.0.0.1:8000/api/user')
+        .then(response => {
+          this.Mail = response.data.email;
+          this.isLoggedIn = true;
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(error => {
+          console.error('Utente non autenticato:', error);
+          this.isLoggedIn = false;
         });
     },
     sendMessage() {
-        console.log('ID Appartamento:', this.id);
-        axios.post('http://127.0.0.1:8000/api/messages', {
-            apartment_id: this.id,   // Questo è corretto
-            Mail: this.Mail,         // Usa 'Mail' con la maiuscola
-            Testo: this.Testo,       // Usa 'Testo' con la maiuscola
-        })
-        .then(response => {
-            alert('Messaggio inviato con successo!');
-            this.Mail = '';
-            this.Testo = '';
-        })
-        .catch(error => {
-            console.error('Errore nella richiesta:', error.response.data); // Stampa gli errori per diagnosi
-            alert('Errore nell\'invio del messaggio.');
-        });
-    }
-}
+      console.log('ID Appartamento:', this.id);
+      axios.post('http://127.0.0.1:8000/api/messages', {
+        apartment_id: this.id,
+        Mail: this.Mail,
+        Testo: this.Testo,
+      })
+      .then(response => {
+        alert('Messaggio inviato con successo!');
+        this.Testo = ''; // Resetta il campo del messaggio dopo l'invio
+      })
+      .catch(error => {
+        console.error('Errore nell\'invio del messaggio:', error.response.data);
+        alert('Errore nell\'invio del messaggio.');
+      });
+    },
+  },
+  created() {
+    this.getUserEmail();
+  },
 };
 </script>
 
-
-
-<template>
-  <!-- Form per inviare il messaggio -->
-  <div>
-    <h2>Invia un messaggio al proprietario</h2>
-    <form @submit.prevent="sendMessage">
-      <div>
-        <label for="email">La tua email:</label>
-        <input v-model="Mail" type="email" id="email" required maxlength="50">
-      </div>
-      <div>
-        <label for="message">Messaggio:</label>
-        <textarea v-model="Testo" id="message" required></textarea>
-      </div>
-      <!-- Invio fisso al'appartamento ID 1 -->
-      <button type="submit">
-        Invia messaggio al proprietario
-      </button>
-    </form>
-  </div>
-</template>
-
-
-
-  
-  
+<style scoped>
+/* Aggiungi eventuali stili personalizzati qui */
+</style>
