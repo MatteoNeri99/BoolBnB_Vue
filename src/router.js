@@ -37,8 +37,6 @@
         component: Message,
         props: true,
       },      
-=======
->>>>>>> origin/main
     ];
 
 const router = createRouter({
