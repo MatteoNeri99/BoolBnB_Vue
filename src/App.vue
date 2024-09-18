@@ -1,16 +1,17 @@
 <script>
-import HomePage from './components/HomePage.vue';
+import ApartmentsList from './components/ApartmentsList.vue';
 import HeaderApp from './components/HeaderApp.vue';
-import ShowPage from './components/ShowPage.vue';
-import NavApp from './components/NavApp.vue';
+import ShowPage from './components/ApartmentCard.vue';
+import AppHomepage from './pages/AppHomepage.vue';
 import { RouterView } from 'vue-router';
 
 export default  {
     components:{
-      HomePage,
+      ApartmentsList,
       HeaderApp,
       ShowPage,
-      NavApp,
+      AppHomepage,
+      
     },
 
     data(){
@@ -24,10 +25,10 @@ export default  {
 </script>
 
 <template>
+  
 
-<NavApp/>
-<HeaderApp/>
-<router-view/>
+<router-view>
+</router-view>
 
 
 </template>

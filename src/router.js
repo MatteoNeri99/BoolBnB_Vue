@@ -1,30 +1,27 @@
 
     import { createRouter, createWebHistory } from 'vue-router';
-    import HomePage from './components/HomePage.vue';
-    import ShowPage from './components/ShowPage.vue';
-    import SearchResults from './components/SearchResults.vue';
-    import LoginApp from './components/LoginApp.vue';
-    import RegisterApp from './components/RegisterApp.vue';
-    import NavApp from './components/NavApp.vue';
-    import Message from './components/Message.vue';
+    import ApartmentsList from './components/ApartmentsList.vue';
+    import ApartmentCard from './components/ApartmentCard.vue';
+    import AppHomepage from './pages/AppHomepage.vue';
+    import AppSearchResults from './pages/AppSearchResults.vue';
+    import ProvaRicerca from './components/ProvaRicerca.vue';
+
+
+    
+
     const routes = [
     {
-        path: '/',
-        name: 'home',
-        component: HomePage,
+        path: '/apartments',
+        name: 'homepage',
+        component: AppHomepage,
+        
        
     },
     {
-        path: '/apartment/:id',
-        name: 'apartment-details',
-        component: ShowPage,
+        path: '/risultati-ricerca',
+        name: 'RisultatiRicerca',
+        component: AppSearchResults,
         props: true, 
-    },
-    {
-        path: '/login',
-        name: 'login',
-        component: [LoginApp, NavApp],
-        props: true,
     },
     
     {
@@ -39,6 +36,7 @@
         component: Message,
         props: true,
       },      
+
     ];
 
 const router = createRouter({
@@ -47,4 +45,3 @@ routes,
 });
 
 export default router;
-
