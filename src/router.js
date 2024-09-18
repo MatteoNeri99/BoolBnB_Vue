@@ -34,11 +34,11 @@
         props: true,
     },
     {
-        path: '/message',
+        path: '/message/:id',
         name: 'Message',
         component: Message,
         props: true,
-      },
+      },      
     ];
 
 const router = createRouter({

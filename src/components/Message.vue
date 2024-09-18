@@ -14,15 +14,14 @@ export default {
     this.getApartment(this.id); // Usa l'ID passato come prop per chiamare l'API
 },
 methods: {
-    getApartment(id) {
-        // Usa GET, non POST, per ottenere i dettagli di un appartamento
-        axios.get(`http://127.0.0.1:8000/api/apartments/${id}`)
-        .then(response => {
-            this.apartment = response.data.results; // Assicurati di controllare la struttura dei dati
-            console.log('Dettagli Appartamento:', this.apartment);
+  getApartment(id) {
+      axios.get(`http://127.0.0.1:8000/api/apartments/${id}`)
+        .then((response) => {
+          console.log(response.data.results); // Verifica la struttura dei dati
+          this.apartment = response.data.results;
         })
-        .catch(error => {
-            console.error('Errore nel caricamento dell\'appartamento:', error);
+        .catch((error) => {
+          console.log(error);
         });
     },
     sendMessage() {
