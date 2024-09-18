@@ -1,4 +1,55 @@
-<template>
+  <script>
+  import axios from 'axios';
+  import { loadGoogleMapsScript, initializeAutocomplete } from '../googleApi';
+  
+  export default {
+    data() {
+      return {
+        searchForm: {
+          indirizzo: '',
+          radius: 20, // valore predefinito
+          Stanze: null,
+          Letti: null,
+          Bagni: null,
+          Prezzo: null,
+          services: []
+        },
+        apartments: [],  // Risultati degli appartamenti
+        error: null      // Messaggio di errore
+      };
+    },
+    methods: {
+      async searchApartments() {
+        try {
+          // Resetta i risultati e gli errori precedenti
+          this.apartments = [];
+          this.error = null;
+  
+          // Effettua la chiamata API
+          const response = await axios.get('/api/apartments/search', {
+            params: this.searchForm
+          });
+  
+          if (response.data.success) {
+            // Se la risposta è positiva, aggiorna i risultati degli appartamenti
+            this.apartments = response.data.apartments;
+            console.log(this.apartments);
+          } else {
+            // Altrimenti, mostra un errore
+            console.log(response);
+            this.error = response.data.message;
+          }
+        } catch (error) {
+          // Gestisci errori
+        }
+      }
+    },
+    mounted() {
+        // Carica lo script di Google Maps e inizializza l'autocompletamento
+        loadGoogleMapsScript(initializeAutocomplete);
+  }};
+  </script>
+  <template>
     <div class="search-apartments">
       <h2>Ricerca Appartamenti</h2>
   
@@ -62,6 +113,7 @@
       </div>
     </div>
   </template>
+
   
   <script>
   import axios from 'axios';
@@ -113,6 +165,7 @@
   }};
   </script>
   
+
   <style scoped>
   /* Stili semplici per il form */
   .search-apartments {

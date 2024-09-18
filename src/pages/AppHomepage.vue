@@ -24,8 +24,7 @@ export default  {
 
 <!-- <HeaderApp/> -->
 <!-- inserire dati come :contatti,logo,p.iva,img(casa) -->
-<ProvaRicerca/>
-<H1>AppHomepage</H1> 
+<ProvaRicerca/> 
 
 
 
