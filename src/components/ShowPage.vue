@@ -48,7 +48,7 @@ export default {
                 <li>Indirizzo: {{ apartment.Indirizzo }}</li>
             </ul>
             <div class="card-footer">
-                <router-link to="/" class="btn btn-primary">Torna alla lista appartamenti</router-link>
+                <router-link to="/apartments" class="btn btn-primary">Torna alla lista appartamenti</router-link>
             </div>
             </div>
         </article>

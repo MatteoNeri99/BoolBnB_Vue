@@ -8,7 +8,7 @@
     import NavApp from './components/NavApp.vue';
     const routes = [
     {
-        path: '/',
+        path: '/apartments',
         name: 'home',
         component: HomePage,
        

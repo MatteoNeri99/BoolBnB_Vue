@@ -5,6 +5,9 @@
             <a class="navbar-brand" :href="homeUrl">
                 {{ appName }}
             </a>
+            <button @click="goToRegister" class="btn btn-primary ms-3">
+                Aggiungi Appartamento
+            </button>
         </div>
     </nav>
 </template>
@@ -21,7 +24,10 @@ export default {
         };
     },
     methods: {
-        
+        goToRegister() {
+            // Cambia l'URL a quello corretto per la tua pagina di registrazione di Laravel
+            window.location.href = 'http://127.0.0.1:8000/register';
+        },
     },
     mounted() {
 
