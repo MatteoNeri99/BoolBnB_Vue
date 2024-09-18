@@ -11,7 +11,7 @@
 
     const routes = [
     {
-        path: '/homepage',
+        path: '/apartments',
         name: 'homepage',
         component: AppHomepage,
         

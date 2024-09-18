@@ -41,7 +41,12 @@ import { loadGoogleMapsScript, initializeAutocomplete } from '../googleApi';
                 .finally(function () {
                     // always executed
                 })
-                }   
+                },
+
+                goToRegister() {
+            // Cambia l'URL a quello corretto per la tua pagina di registrazione di Laravel
+            window.location.href = 'http://127.0.0.1:8000/register';
+        },   
         },
         mounted() {
         // Carica lo script di Google Maps e inizializza l'autocompletamento
@@ -57,6 +62,9 @@ import { loadGoogleMapsScript, initializeAutocomplete } from '../googleApi';
     <header class="container">
 
         <h2>Modulo di Ricerca</h2>
+        <button @click="goToRegister" class="btn btn-primary ms-3">
+                Aggiungi Appartamento
+        </button>
                 <form  class="w-100">
                     <div class="form-row w-100">
 
