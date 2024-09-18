@@ -97,7 +97,7 @@
   
           if (response.data.success) {
             // Se la risposta è positiva, aggiorna i risultati degli appartamenti
-            console.log(response);
+            console.log(response.data);
           } else {
             // Altrimenti, mostra un errore
             console.log(response);
