@@ -31,12 +31,10 @@
         props: true,
     },
     {
-        path: '/message/:id',
+        path: '/message',
         name: 'Message',
         component: Message,
-        props: true,
-      },      
-
+      },
     ];
 
 const router = createRouter({
