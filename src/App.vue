@@ -1,7 +1,7 @@
 <script>
 import ApartmentsList from './components/ApartmentsList.vue';
 import HeaderApp from './components/HeaderApp.vue';
-import ShowPage from './components/ApartmentCard.vue';
+import ApartmentShow from './components/ApartmentShow.vue'
 import AppHomepage from './pages/AppHomepage.vue';
 import { RouterView } from 'vue-router';
 
@@ -9,7 +9,7 @@ export default  {
     components:{
       ApartmentsList,
       HeaderApp,
-      ShowPage,
+      ApartmentShow,
       AppHomepage,
       
     },

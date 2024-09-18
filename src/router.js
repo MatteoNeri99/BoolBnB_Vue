@@ -16,24 +16,6 @@
         
        
     },
-    {
-        path: '/risultati-ricerca',
-        name: 'RisultatiRicerca',
-        component: AppSearchResults,
-        props: true, 
-    },
-    
-    {
-        path: '/register',
-        name: 'register',
-        component: [RegisterApp, NavApp],
-        props: true,
-    },
-    {
-        path: '/message',
-        name: 'Message',
-        component: Message,
-      },
     ];
 
 const router = createRouter({
