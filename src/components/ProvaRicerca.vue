@@ -115,7 +115,7 @@
   </template>
 
   
-  <script>
+  <!-- <script>
   import axios from 'axios';
   import { loadGoogleMapsScript, initializeAutocomplete } from '../googleApi';
   
@@ -163,7 +163,7 @@
         // Carica lo script di Google Maps e inizializza l'autocompletamento
         loadGoogleMapsScript(initializeAutocomplete);
   }};
-  </script>
+  </script> -->
   
 
   <style scoped>
