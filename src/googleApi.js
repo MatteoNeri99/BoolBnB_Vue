@@ -38,4 +38,3 @@ function loadGoogleMapsScript(callback) {
   
   // Esportare la funzione per essere utilizzata nei componenti Vue
   export { loadGoogleMapsScript, initializeAutocomplete };
-  
