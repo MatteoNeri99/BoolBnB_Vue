@@ -69,14 +69,13 @@ export default {
       try {
         const response = await axios.get('http://127.0.0.1:8000/api/apartments/search', {
           params: {
-            indirizzo: this.address,
-            radius: this.radius,
             Stanze: this.filters.Stanze,
             Letti: this.filters.Letti,
             Bagni: this.filters.Bagni,
             services:this.services,
-            latitudine: this.selectedCoordinates.lat,
-            longitudine: this.selectedCoordinates.lon,
+            Latitudine: this.selectedCoordinates.lat,
+            Longitudine: this.selectedCoordinates.lon,
+            radius: this.radius,
           }
         });
         
