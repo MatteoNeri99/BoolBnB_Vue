@@ -1,11 +1,12 @@
 <script>
-import HeaderApp from '../components/HeaderApp.vue';
+
 import ProvaRicerca from '../components/ProvaRicerca.vue';
 import { RouterView } from 'vue-router';
+import SearchResults from '../components/SearchResults.vue';
 
 export default  {
     components:{
-      HeaderApp,
+      SearchResults,
       ProvaRicerca
     },
 
@@ -22,7 +23,7 @@ export default  {
 <template>
 
 
-<!-- <HeaderApp/> -->
+
 <!-- inserire dati come :contatti,logo,p.iva,img(casa) -->
 <ProvaRicerca/> 
 

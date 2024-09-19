@@ -1,6 +1,7 @@
 
 <script>
 import axios from 'axios';
+import SearchResults from './SearchResults.vue';
 
 export default {
   data() {
@@ -18,6 +19,10 @@ export default {
       },
       apartments: [],
     };
+  },
+  components:{
+    SearchResults,
+
   },
   methods: {
     // Metodo per ottenere i suggerimenti di autocomplete dall'API di TomTom
@@ -69,8 +74,8 @@ export default {
             Letti: this.filters.Letti,
             Bagni: this.filters.Bagni,
             services:this.services,
-            lat: this.selectedCoordinates.lat,
-            lon: this.selectedCoordinates.lon,
+            latitudine: this.selectedCoordinates.lat,
+            longitudine: this.selectedCoordinates.lon,
           }
         });
 
@@ -127,49 +132,41 @@ export default {
       <button class="btn btn-primary" @click.prevent="searchApartments" :disabled="!isValidAddress">Search</button>
       <div class="container">
         <div class="row">
-            <div class=" col-md-2 d-flex flex-column ">
-              <ul class="list-unstyled d-flex align-items-center  m-3" >
-                <li    class="p-3"><label><input type="checkbox" v-model="services" name="services[]"  value="1"> WiFi gratuito</label></li>
-                <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="2"> Colazione inclusa</label></li>
-                <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="3"> Aria condizionata</label></li>
-                <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="4"> Parcheggio gratuito</label></li>
-                <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="5"> Servizio in camera</label></li>
-                <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="6"> Animali ammessi</label></li>
-                <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="7"> Piscina</label></li>
-                <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="8"> Palestra</label></li>
-                <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="9"> Spa e centro benessere</label></li>
-                <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="10"> TV satellitare</label></li>
-                <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="11"> Minibar</label></li>
-                <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="12"> Cassaforte in camera</label></li>
-              </ul>
-              <ul class="list-unstyled d-flex align-items-center  m-3" >
-                <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="13"> Accesso per disabili</label></li>
-                <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="14"> Deposito bagagli</label></li>
-                <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="15"> Servizio navetta</label></li>
-                <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="16"> Noleggio biciclette</label></li>
-                <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="17"> Area giochi per bambini</label></li>
-                <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="18"> Sala conferenze</label></li>
-                <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="19"> Bar</label></li>
-                <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="20"> Ristorante</label></li>
-                <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="21"> Servizio lavanderia</label></li>
-                <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="22"> Asciugacapelli</label></li>
-                <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="23"> Ferro da stiro</label></li>
-                <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="24"> Reception 24 ore su 24</label></li>
-              </ul>
-            </div>
+          <div class=" col-md-2 d-flex flex-column ">
+            <ul class="list-unstyled d-flex align-items-center  m-3" >
+              <li    class="p-3"><label><input type="checkbox" v-model="services" name="services[]"  value="1"> WiFi gratuito</label></li>
+              <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="2"> Colazione inclusa</label></li>
+              <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="3"> Aria condizionata</label></li>
+              <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="4"> Parcheggio gratuito</label></li>
+              <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="5"> Servizio in camera</label></li>
+              <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="6"> Animali ammessi</label></li>
+              <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="7"> Piscina</label></li>
+              <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="8"> Palestra</label></li>
+              <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="9"> Spa e centro benessere</label></li>
+              <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="10"> TV satellitare</label></li>
+              <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="11"> Minibar</label></li>
+              <li    class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="12"> Cassaforte in camera</label></li>
+            </ul>
+            <ul class="list-unstyled d-flex align-items-center  m-3" >
+              <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="13"> Accesso per disabili</label></li>
+              <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="14"> Deposito bagagli</label></li>
+              <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="15"> Servizio navetta</label></li>
+              <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="16"> Noleggio biciclette</label></li>
+              <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="17"> Area giochi per bambini</label></li>
+              <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="18"> Sala conferenze</label></li>
+              <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="19"> Bar</label></li>
+              <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="20"> Ristorante</label></li>
+              <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="21"> Servizio lavanderia</label></li>
+              <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="22"> Asciugacapelli</label></li>
+              <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="23"> Ferro da stiro</label></li>
+              <li class="p-3"><label ><input type="checkbox" v-model="services" name="services[]" value="24"> Reception 24 ore su 24</label></li>
+            </ul>
+          </div>
         </div>
-                    </div>
-    </form>
-
-      <div v-if="apartments.length">
-        <h4>Search Results</h4>
-        <ul>
-          <li v-for="apartment in apartments" :key="apartment.id">
-            {{ apartment.Indirizzo }} - {{ apartment.Stanze }} Rooms
-          </li>
-        </ul>
       </div>
-    </div>
+    </form>
+  </div>
+  <SearchResults :apartments="apartments"/>
 </template>
 
 <style scoped>

@@ -4,6 +4,7 @@
     import AppHomepage from './pages/AppHomepage.vue';
     import AppSearchResults from './pages/AppSearchResults.vue';
     import ProvaRicerca from './components/ProvaRicerca.vue';
+    import ApartmentShow from './components/ApartmentShow.vue';
 
 
     
@@ -15,6 +16,12 @@
         component: AppHomepage,
         
        
+    },
+    {
+        path: '/apartment-details/:id',
+        name: 'apartment-details',
+        component: ApartmentShow,
+        
     },
     ];
 

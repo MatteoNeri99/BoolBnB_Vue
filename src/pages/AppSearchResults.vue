@@ -22,8 +22,8 @@ export default  {
 <template>
 
 
-<HeaderApp/>
 <SearchResults/>
+
 
 
 

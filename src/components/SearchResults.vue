@@ -10,27 +10,10 @@
 
 
         },
-        methods: {
-            getApartments (){axios.get('http://127.0.0.1:8000/api/apartments', {
-            params: {
-            
-            }
-            })
-            .then((response) => {
-                console.log(response.data);
-                this.apartments = response.data.results;
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-        },
-        
-        
-    },
-    created(){
-        this.getApartments();
+        props:{
+            apartments:Array,
+        }
 
-        } 
     }
 
     </script>
@@ -55,7 +38,6 @@
                 <router-link :to="{ name: 'apartment-details', params: { id: apartment.id } }" class="btn btn-primary">
                 Mostra dettagli
                 </router-link>
-
             </div>
             </div>
         </div>
