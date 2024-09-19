@@ -60,6 +60,7 @@ export default {
     // Metodo per cercare appartamenti usando le API
     async searchApartments() {
       console.log(this.address)
+      console.log(this.selectedCoordinates)
       if (!this.selectedCoordinates) {
         alert('Please select a valid address from the list.');
         return;
@@ -78,8 +79,9 @@ export default {
             longitudine: this.selectedCoordinates.lon,
           }
         });
-
+        
         this.apartments = response.data;
+        console.log(this.apartments)
       } catch (error) {
         console.error('Error searching apartments:', error);
       }
