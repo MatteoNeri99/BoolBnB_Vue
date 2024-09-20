@@ -18,7 +18,7 @@
                 <p class="fw-bold" Servizi: v-for="service in apartment.services">{{ service.Nome }}</p>
             </div>
             <div class="card-footer">
-              <router-link :to="{ name: 'apartment-details', params: { id: apartment.id } }" class="btn btn-primary btn-submit">
+              <router-link :to="{ name: 'apartment-details', params: { id: apartment.id } }" class="btn btn-danger btn-submit">
                 Mostra dettagli
               </router-link>
             </div>
@@ -43,7 +43,6 @@
   object-fit: cover;
 }
 
-
 .styled-header {
   padding: 30px;
   background-color: #d9c8c8;
@@ -54,7 +53,7 @@
 }
 
 .submit-btn {
-  background-color: #e84141;
+  /* background-color: #e84141; */
   border: none;
   padding: 12px 20px;
   border-radius: 8px;
@@ -65,7 +64,8 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-.submit-btn:hover {
-  background-color: #480d0d;
+.card-footer{
+  display: flex;
+  justify-content: center;
 }
   </style>
