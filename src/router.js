@@ -7,7 +7,7 @@ import ApartmentShow from './components/ApartmentShow.vue';
 
 const routes = [
   {
-    path: '/apartments',
+    path: '/',
     name: 'homepage',
     component: AppHomepage,
   },
