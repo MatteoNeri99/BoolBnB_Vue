@@ -215,10 +215,8 @@ export default {
   cursor: pointer;
   width: 25%;
 }
-
 form{
   background-color: #d0a2a2;
-
 }
 
 .submit-btn:hover {

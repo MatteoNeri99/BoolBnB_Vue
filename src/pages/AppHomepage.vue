@@ -31,12 +31,14 @@ export default  {
     <div class="header text-center"> 
       <img src="/src/img/logo.png" alt="logo" class="logo">
     </div> 
-    <button @click="goToRegister" class="btn btn-primary ms-3">
-      Registrati
-    </button>
-    <button @click="goToLogin" class="btn btn-primary ms-3">
-      Accedi
-    </button>
+    <div class="d-flex justify-content-center pb-4">
+      <button @click="goToRegister" class="btn btn-danger submit-btn ms-3">
+        Registrati
+      </button>
+      <button @click="goToLogin" class="btn btn-danger submit-btn ms-3">
+        Accedi
+      </button>
+    </div>
   </header>
   <main>
     <ProvaRicerca/> 
@@ -82,6 +84,7 @@ header{
 .logo{
   margin-top: 5%;
   width: 50%;
+  padding-bottom: 4rem;
 }
 img{
   width: 20%;
@@ -89,5 +92,15 @@ img{
 footer{
   background-color: #936f6f;
 }
-
+.submit-btn {
+  background-color: #e84141;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  width: 25%;
+}
 </style>
