@@ -65,17 +65,17 @@ export default {
           <img class="card-img-top w-100" :src="apartment.Img" alt="Immagine Appartamento">
           <div class="card-body">
             <h5 class="card-title">{{ apartment.Nome }}</h5>
+            <ul class="list-unstyled">
+              <li class="fw-bold"><i class="fa-solid fa-euro-sign"></i> Prezzo: <span class="fw-normal">&euro;{{ apartment.Prezzo }}</span></li>
+              <li class="fw-bold"><i class="fa-solid fa-person-booth"></i> Stanze: <span class="fw-normal">{{ apartment.Stanze }}</span></li>
+              <li class="fw-bold"><i class="fa-solid fa-bed"></i> Letti: <span class="fw-normal">{{ apartment.Letti }}</span></li>
+              <li class="fw-bold"><i class="fa-solid fa-toilet"></i> Bagni: <span class="fw-normal">{{ apartment.Bagni }}</span></li>
+              <li class="fw-bold"><i class="fa-solid fa-ruler"></i> Metri quadrati: <span class="fw-normal">{{ apartment.Metri_quadrati }} metri quadrati</span></li>
+              <li class="fw-bold"><i class="fa-solid fa-location-dot"></i> Indirizzo: <span class="fw-normal">{{ apartment.Indirizzo }}</span></li>
+            </ul>
           </div>
-          <ul class="list-unstyled">
-            <li class="fw-bold"><i class="fa-solid fa-euro-sign"></i> Prezzo: <span class="fw-normal">&euro;{{ apartment.Prezzo }}</span></li>
-            <li class="fw-bold"><i class="fa-solid fa-person-booth"></i> Stanze: <span class="fw-normal">{{ apartment.Stanze }}</span></li>
-            <li class="fw-bold"><i class="fa-solid fa-bed"></i> Letti: <span class="fw-normal">{{ apartment.Letti }}</span></li>
-            <li class="fw-bold"><i class="fa-solid fa-toilet"></i> Bagni: <span class="fw-normal">{{ apartment.Bagni }}</span></li>
-            <li class="fw-bold"><i class="fa-solid fa-ruler"></i> Metri quadrati: <span class="fw-normal">{{ apartment.Metri_quadrati }} metri quadrati</span></li>
-            <li class="fw-bold"><i class="fa-solid fa-location-dot"></i> Indirizzo: <span class="fw-normal">{{ apartment.Indirizzo }}</span></li>
-          </ul>
           <div class="card-footer">
-            <router-link to="/apartments" class="btn btn-primary submit-btn">Torna alla lista appartamenti</router-link>
+            <router-link to="/apartments" class="btn btn-primary submit-btn">Torna alla homepage</router-link>
           </div>
 
           <!-- Form di invio messaggio -->
