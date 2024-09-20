@@ -15,8 +15,14 @@ export default  {
 
             }
         },
-        
-
+    methods:{
+      goToRegister() {
+        window.location.href = 'http://127.0.0.1:8000/register';
+      },
+      goToLogin() {
+        window.location.href = 'http://127.0.0.1:8000/login';
+      }
+    }
 }
 </script>
 
@@ -25,11 +31,17 @@ export default  {
     <div class="header text-center"> 
       <img src="/src/img/logo.png" alt="logo" class="logo">
     </div> 
+    <button @click="goToRegister" class="btn btn-primary ms-3">
+      Registrati
+    </button>
+    <button @click="goToLogin" class="btn btn-primary ms-3">
+      Accedi
+    </button>
   </header>
   <main>
     <ProvaRicerca/> 
   </main>
-  <footer>
+  <footer class="pt-4">
     <div>
       <h2 class="mb-4 text-center">Perché scegliere BoolBnb?</h2> 
     </div>
@@ -49,8 +61,8 @@ export default  {
         </div>
       </div>
     </div>
-    <p class="text-center">
-      Contact us at: Boolbnb@gmail.com
+    <p class="text-center mt-4">
+      <u>Contact us at: Boolbnb@gmail.com</u>
     </p>
   </footer>
   <!-- inserire dati come :contatti,,p.iva,img(casa) -->
@@ -63,6 +75,10 @@ template{
   padding: 0;
   box-sizing: border-box;
 }
+header{
+  background-color: #b19898;
+  ;
+}
 .logo{
   margin-top: 5%;
   width: 50%;
@@ -70,4 +86,8 @@ template{
 img{
   width: 20%;
 }
+footer{
+  background-color: #936f6f;
+}
+
 </style>
