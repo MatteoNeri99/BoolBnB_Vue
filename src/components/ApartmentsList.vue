@@ -81,20 +81,4 @@
   max-width: 600px;
   margin: 30px auto;
 }
-
-.submit-btn {
-  background-color: #e84141;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.submit-btn:hover {
-  background-color: #480d0d;
-}
   </style>

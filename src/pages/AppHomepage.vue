@@ -44,7 +44,7 @@ export default  {
     <ProvaRicerca/> 
   </main>
   <footer class="pt-4">
-    <div>
+    <div class="title">
       <h2 class="mb-4 text-center">Perché scegliere BoolBnb?</h2> 
     </div>
     <div class="container">
@@ -63,7 +63,7 @@ export default  {
         </div>
       </div>
     </div>
-    <p class="text-center mt-4">
+    <p class="text-center pt-4">
       <u>Contact us at: Boolbnb@gmail.com</u>
     </p>
   </footer>
@@ -77,9 +77,32 @@ template{
   padding: 0;
   box-sizing: border-box;
 }
+main{
+  background-color: #f5c9cb;
+}
 header{
-  background-color: #b19898;
-  ;
+  background-color: #f6cacc;
+  position: relative;
+  background-image: url(../img/header-img.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #b19898;
+    opacity: 0.7;
+    z-index: 0; // Manda lo sfondo dietro al contenuto
+  }
+
+  .header, .d-flex {
+    position: relative;
+    z-index: 1;
+  }
 }
 .logo{
   margin-top: 5%;
@@ -90,10 +113,14 @@ img{
   width: 20%;
 }
 footer{
-  background-color: #936f6f;
+  background-color: #f6cacc;
+}
+.title{
+  text-align: center;
+  padding-top: 1rem;
+  color: #9c191b;
 }
 .submit-btn {
-  background-color: #e84141;
   border: none;
   padding: 12px 20px;
   border-radius: 8px;

@@ -72,15 +72,15 @@ export default {
               <li class="fw-bold"><i class="fa-solid fa-toilet"></i> Bagni: <span class="fw-normal">{{ apartment.Bagni }}</span></li>
               <li class="fw-bold"><i class="fa-solid fa-ruler"></i> Metri quadrati: <span class="fw-normal">{{ apartment.Metri_quadrati }} metri quadrati</span></li>
               <li class="fw-bold"><i class="fa-solid fa-location-dot"></i> Indirizzo: <span class="fw-normal">{{ apartment.Indirizzo }}</span></li>
+              <li class="fw-bold"><i class="fa-solid fa-location-dot"></i> Servizi: <span class="fw-normal" v-for="service in apartment.services">{{ service.Nome }}</span></li>
             </ul>
-            <p class="fw-bold" Servizi: v-for="service in apartment.services">{{ service.Nome }}</p>
           </div>
           <div class="card-footer">
-            <router-link to="/apartments" class="btn btn-primary submit-btn">Torna alla homepage</router-link>
+            <router-link to="/" style="background-color: #9c191b" class="btn">Torna alla homepage</router-link>
           </div>
 
           <!-- Form di invio messaggio -->
-          <div class="card-footer styled-footer">
+          <div class="card-footer styled-footer d-flex flex-column">
             <h2 class="footer-title">Invia un messaggio al proprietario</h2>
             <form @submit.prevent="sendMessage" class="contact-form">
               <div class="mb-3">
@@ -110,7 +110,7 @@ export default {
                   placeholder="Scrivi qui il tuo messaggio"
                 ></textarea>
               </div>
-              <button type="submit" class="btn btn-primary submit-btn">Invia Messaggio</button>
+              <button type="submit" class="btn-mex">Invia Messaggio</button>
             </form>
           </div>
         </div>
@@ -119,7 +119,12 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss">
+@use '../node_modules/bootstrap/scss/bootstrap.scss';
+.card-body{
+  background-color: #f5c9cb;
+  color: #b5191c;
+}
 .card-img-top {
   height: 300px;
   object-fit: cover;
@@ -158,21 +163,20 @@ export default {
 
 .form-label {
   font-weight: 500;
-  color: #555;
 }
 
-.email-input, .message-input {
-  border: 2px solid #ddd;
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease-in-out;
-}
+// .email-input, .message-input {
+//   border: 2px solid #ddd;
+//   padding: 12px;
+//   border-radius: 8px;
+//   font-size: 1rem;
+//   transition: border-color 0.3s ease-in-out;
+// }
 
-.email-input:focus, .message-input:focus {
-  border-color: #e84141;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
-}
+// .email-input:focus, .message-input:focus {
+//   border-color: #db3545;
+//   box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+// }
 
 .message-input {
   min-height: 120px;
@@ -182,19 +186,18 @@ export default {
   color: #888;
 }
 
-.submit-btn {
-  background-color: #e84141;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+.card-footer{
+  background-color: #9c191b;
 }
 
-.submit-btn:hover {
-  background-color: #480d0d;
+.btn {
+  background-color: #9c191b;
+  color: white;
 }
+
+.btn-mex {
+  background-color: #9c191b;
+  color: white;
+}
+
 </style>

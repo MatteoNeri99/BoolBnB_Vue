@@ -90,7 +90,10 @@ export default {
 </script>
 <template>
   <div class="apartment-search">
-    <form >  
+    <form>  
+      <h1 class="title">
+        Scegli dove andare
+      </h1>
       <div class="form-group">
         <label for="indirizzo"></label>
         <input 
@@ -101,12 +104,12 @@ export default {
           id="Indirizzo" name="Indirizzo"  
           placeholder="Inserisci un indirizzo" 
           aria-label="Search">
-        <ul v-if="autocompleteResults.length" class="searchbar autocomplete-results">
+        <ul v-if="autocompleteResults.length" class="list searchbar autocomplete-results">
           <li v-for="result in autocompleteResults" :key="result.id" @click="selectAddress(result)">
             {{ result.address.freeformAddress }}
           </li>
         </ul>
-        <p v-if="!isValidAddress && address.length > 0" class="text-danger">Please select a valid address from the list.</p>
+        <p v-if="!isValidAddress && address.length > 0" class=" text-danger">Per favore, seleziona un indirizzo valido dalla lista.</p>
       </div>
 
       <div class="row mt-3 justify-content-center text-center">
@@ -129,53 +132,67 @@ export default {
           <small class="form-text text-muted">Il raggio di ricerca può essere modificato solo per ridurre il valore.</small>
         </div>
       </div>
-      <div class="container">
+      <div class="container pt-5 pb-5">
         <div class="row">
           <div class="d-flex justify-content-center">
             <ul class="col-md-2 list-unstyled">
-              <li><label><input type="checkbox" v-model="services" name="services[]" value="1"> WiFi gratuito</label></li>
-              <li><label><input type="checkbox" v-model="services" name="services[]" value="2"> Colazione inclusa</label></li>
-              <li><label><input type="checkbox" v-model="services" name="services[]" value="3"> Aria condizionata</label></li>
-              <li><label><input type="checkbox" v-model="services" name="services[]" value="4"> Parcheggio gratuito</label></li>
-              <li><label><input type="checkbox" v-model="services" name="services[]" value="5"> Servizio in camera</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="13"> Accesso per disabili</label></li>
               <li><label><input type="checkbox" v-model="services" name="services[]" value="6"> Animali ammessi</label></li>
-            </ul>
-            <ul class="col-md-2 list-unstyled">  
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="7"> Piscina</label></li>
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="8"> Palestra</label></li>
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="9"> Spa e centro benessere</label></li>
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="10"> TV satellitare</label></li>
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="11"> Minibar</label></li>
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="12"> Cassaforte in camera</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="17"> Area giochi per bambini</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="3"> Aria condizionata</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="22"> Asciugacapelli</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="19"> Bar</label></li>
             </ul>
             <ul class="col-md-2 list-unstyled">
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="13"> Accesso per disabili</label></li>
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="14"> Deposito bagagli</label></li>
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="15"> Servizio navetta</label></li>
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="16"> Noleggio biciclette</label></li>
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="17"> Area giochi per bambini</label></li>
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="18"> Sala conferenze</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="12"> Cassaforte in camera</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="2"> Colazione inclusa</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="14"> Deposito bagagli</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="23"> Ferro da stiro</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="11"> Minibar</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="16"> Noleggio biciclette</label></li>
             </ul>
-            <ul class="col-md-2 list-unstyled">  
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="19"> Bar</label></li>
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="20"> Ristorante</label></li>
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="21"> Servizio lavanderia</label></li>
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="22"> Asciugacapelli</label></li>
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="23"> Ferro da stiro</label></li>
-              <li ><label ><input type="checkbox" v-model="services" name="services[]" value="24"> Reception 24 ore su 24</label></li>
+            <ul class="col-md-2 list-unstyled">
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="8"> Palestra</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="4"> Parcheggio gratuito</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="7"> Piscina</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="24"> Reception 24 ore su 24</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="20"> Ristorante</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="18"> Sala conferenze</label></li>
+            </ul>
+            <ul class="col-md-2 list-unstyled">
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="5"> Servizio in camera</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="21"> Servizio lavanderia</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="15"> Servizio navetta</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="9"> Spa e centro benessere</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="10"> TV satellitare</label></li>
+              <li><label><input type="checkbox" v-model="services" name="services[]" value="1"> WiFi gratuito</label></li>
             </ul>
           </div>
         </div>
       </div>
+
+
       <div class="d-flex flex-column align-items-center">
-        <button class="btn btn-danger submit-btn" @click.prevent="searchApartments" :disabled="!isValidAddress">Search</button>
+        <button class="btn btn-danger ms-3 submit-btn" @click.prevent="searchApartments" :disabled="!isValidAddress">Search</button>
       </div>
     </form>
   </div>
   <SearchResults :apartments="apartments"/>
 </template>
 
-<style scoped>
+<style lang="scss">
+@use '../node_modules/bootstrap/scss/bootstrap.scss';
+
+.list{
+  background-color: #EC8385;
+  color: white;
+}
+
+.title{
+  text-align: center;
+  padding-top: 1rem;
+  color: #9c191b;
+}
 .autocomplete-results {
   border: 1px solid #ccc;
   max-height: 200px;
@@ -192,7 +209,7 @@ export default {
 }
 .searchbar {
   margin-top: 20px;
-  width: 80%;
+  width: 60%;
 }
 .small-searchbar {
   margin-top: 20px;
@@ -203,9 +220,16 @@ export default {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+
+    input{
+      width: 80%;
+    }
+}
+
+form{
+  background-color: #f6cacc;
 }
 .submit-btn {
-  background-color: #e84141;
   border: none;
   padding: 12px 20px;
   border-radius: 8px;
@@ -215,11 +239,5 @@ export default {
   cursor: pointer;
   width: 25%;
 }
-form{
-  background-color: #d0a2a2;
-}
 
-.submit-btn:hover {
-  background-color: #480d0d;
-}
 </style>

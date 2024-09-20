@@ -2,7 +2,10 @@
     <div class="container">
       <div>
         <div class="row justify-content-center">
-          <div class="col-md-4 mb-4 w-100" v-for="apartment in apartments"  :key="apartment.id">
+          <h1 class="title">
+            Ecco i tuoi risultati
+          </h1>
+          <div v-for="apartment in apartments"  :key="apartment.id">
             <div class="card p-3 w-100 styled-header">
               <img :src="apartment.Img" class="card-img-top" alt="Apartment Image">
               <div class="card-body">
@@ -14,8 +17,8 @@
                   <li class="fw-bold"><i class="fa-solid fa-toilet"></i> Bagni: <span class="fw-normal">{{ apartment.Bagni }}</span></li>
                   <li class="fw-bold"><i class="fa-solid fa-ruler"></i> Metri quadrati: <span class="fw-normal">{{ apartment.Metri_quadrati }} metri quadrati</span></li>
                   <li class="fw-bold"><i class="fa-solid fa-location-dot"></i> Indirizzo: <span class="fw-normal">{{ apartment.Indirizzo }}</span></li>
+                  <li class="fw-bold"><i class="fa-solid fa-location-dot"></i> Servizi: <span class="fw-normal" v-for="service in apartment.services">{{ service.Nome }}</span></li>
                 </ul>
-                <p class="fw-bold" Servizi: v-for="service in apartment.services">{{ service.Nome }}</p>
             </div>
             <div class="card-footer">
               <router-link :to="{ name: 'apartment-details', params: { id: apartment.id } }" class="btn btn-danger btn-submit">
@@ -37,7 +40,16 @@
   };
   </script>
   
-  <style scoped>
+  <style lang="scss">
+  @use '../node_modules/bootstrap/scss/bootstrap.scss';
+
+  .container{
+    margin: 0;
+    padding: 0;
+  }
+
+
+
 .card-img-top {
   height: 300px;
   object-fit: cover;
@@ -53,7 +65,7 @@
 }
 
 .submit-btn {
-  /* background-color: #e84141; */
+  background-color: #e84141;
   border: none;
   padding: 12px 20px;
   border-radius: 8px;
