@@ -18,6 +18,7 @@ export default {
         Bagni: null,
       },
       apartments: [],
+      noResults: false,
     };
   },
   components:{
@@ -80,10 +81,23 @@ export default {
         });
         
         this.apartments = response.data;
+
+         // Controlla se non ci sono risultati
+          if (this.apartments.length === 0) {
+          this.noResults = true; 
+        } else {
+          this.noResults = false; 
+        }
+
         console.log(this.apartments)
       } catch (error) {
         console.error('Error searching apartments:', error);
       }
+    },
+
+    // Metodo per chiudere l'alert
+    closeAlert() {
+      this.noResults = false; 
     },
   },
 };
@@ -168,9 +182,18 @@ export default {
         </div>
       </div>
       <div class="d-flex flex-column align-items-center">
-        <button class="btn btn-danger submit-btn" @click.prevent="searchApartments" :disabled="!isValidAddress">Search</button>
+        <button class="btn btn-danger submit-btn mb-3" @click.prevent="searchApartments" :disabled="!isValidAddress">Search</button>
       </div>
     </form>
+
+      <!-- Messaggio di errore se non ci sono appartamenti con i filtri impostati-->
+      <div v-if="noResults" class="alert-overlay">
+        <div class="alert-content small-alert">
+          <p>Nessun appartamento trovato per i filtri selezionati.</p>
+          <button @click="closeAlert" class="btn-ok">OK</button>
+        </div>
+      </div>
+
   </div>
   <SearchResults :apartments="apartments"/>
 </template>
@@ -222,4 +245,45 @@ form{
 .submit-btn:hover {
   background-color: #480d0d;
 }
+
+.alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.alert-content {
+  background-color: #E66063;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1rem;
+  max-width: 300px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-ok {
+  margin-top: 10px;
+  background-color: #ffffff;
+  color: #E66063;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-ok:hover {
+  background-color: #ffeeba;
+}
+
+
 </style>
