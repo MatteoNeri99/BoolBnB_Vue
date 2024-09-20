@@ -73,6 +73,7 @@ export default {
               <li class="fw-bold"><i class="fa-solid fa-ruler"></i> Metri quadrati: <span class="fw-normal">{{ apartment.Metri_quadrati }} metri quadrati</span></li>
               <li class="fw-bold"><i class="fa-solid fa-location-dot"></i> Indirizzo: <span class="fw-normal">{{ apartment.Indirizzo }}</span></li>
             </ul>
+            <p class="fw-bold" Servizi: v-for="service in apartment.services">{{ service.Nome }}</p>
           </div>
           <div class="card-footer">
             <router-link to="/apartments" class="btn btn-primary submit-btn">Torna alla homepage</router-link>
