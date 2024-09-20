@@ -76,7 +76,7 @@ export default {
             <p class="fw-bold" Servizi: v-for="service in apartment.services">{{ service.Nome }}</p>
           </div>
           <div class="card-footer">
-            <router-link to="/apartments" class="btn btn-primary submit-btn">Torna alla homepage</router-link>
+            <router-link to="/" class="btn btn-primary submit-btn">Torna alla homepage</router-link>
           </div>
 
           <!-- Form di invio messaggio -->
