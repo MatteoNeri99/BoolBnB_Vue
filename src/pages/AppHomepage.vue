@@ -47,7 +47,7 @@ export default  {
     <div class="title">
       <h2 class="mb-4 text-center">Perché scegliere BoolBnb?</h2> 
     </div>
-    <div class="container">
+    <div class="container white-color">
       <div class="d-flex flex-row w-00 text-center">
         <div class="col-md-4"> 
             <img class="img" src="/src/img/customer-service.png" alt="Assistenza 24/7"> 
@@ -58,7 +58,7 @@ export default  {
             <p>Alloggi Unici</p> 
         </div> 
         <div class="col-md-4"> 
-            <img class="img" src="/src/img/booking.png" alt="Prenotazione Facile"> 
+            <img class="img" src="/src/img/sheet_8861435.png" alt="Prenotazione Facile"> 
             <p>Prenotazione Facile</p> 
         </div>
       </div>
@@ -109,8 +109,14 @@ header{
   width: 50%;
   padding-bottom: 4rem;
 }
+
+.white-color{
+color: white;
+}
+
 img{
   width: 20%;
+  filter: brightness(0) invert(1);
 }
 footer{
   background-color: #f6cacc;

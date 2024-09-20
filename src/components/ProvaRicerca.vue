@@ -18,6 +18,7 @@ export default {
         Bagni: null,
       },
       apartments: [],
+      noResults: false,
     };
   },
   components:{
@@ -80,10 +81,23 @@ export default {
         });
         
         this.apartments = response.data;
+
+         // Controlla se non ci sono risultati
+          if (this.apartments.length === 0) {
+          this.noResults = true; 
+        } else {
+          this.noResults = false; 
+        }
+
         console.log(this.apartments)
       } catch (error) {
         console.error('Error searching apartments:', error);
       }
+    },
+
+    // Metodo per chiudere l'alert
+    closeAlert() {
+      this.noResults = false; 
     },
   },
 };
@@ -173,9 +187,18 @@ export default {
 
 
       <div class="d-flex flex-column align-items-center">
-        <button class="btn btn-danger ms-3 submit-btn" @click.prevent="searchApartments" :disabled="!isValidAddress">Search</button>
+        <button class="btn btn-danger submit-btn" @click.prevent="searchApartments" :disabled="!isValidAddress">Search</button>
       </div>
     </form>
+
+      <!-- Messaggio di errore se non ci sono appartamenti con i filtri impostati-->
+      <div v-if="noResults" class="alert-overlay">
+        <div class="alert-content small-alert">
+          <p>Nessun appartamento trovato per i filtri selezionati.</p>
+          <button @click="closeAlert" class="btn-ok">OK</button>
+        </div>
+      </div>
+
   </div>
   <SearchResults :apartments="apartments"/>
 </template>
@@ -240,4 +263,7 @@ form{
   width: 25%;
 }
 
+.submit-btn:hover {
+  background-color: #480d0d;
+}
 </style>
