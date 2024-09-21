@@ -102,12 +102,10 @@ export default {
   },
 };
 </script>
+
 <template>
   <div class="apartment-search">
-    <form>  
-      <h1 class="title">
-        Scegli dove andare
-      </h1>
+    <form>
       <div class="form-group">
         <label for="indirizzo"></label>
         <input 
@@ -149,7 +147,7 @@ export default {
       <div class="container pt-5 pb-5">
         <div class="row">
           <div class="d-flex justify-content-center">
-            <ul class="col-md-2 list-unstyled">
+            <ul class="col-md-3 list-unstyled">
               <li><label><input type="checkbox" v-model="services" name="services[]" value="13"> Accesso per disabili</label></li>
               <li><label><input type="checkbox" v-model="services" name="services[]" value="6"> Animali ammessi</label></li>
               <li><label><input type="checkbox" v-model="services" name="services[]" value="17"> Area giochi per bambini</label></li>
@@ -157,7 +155,7 @@ export default {
               <li><label><input type="checkbox" v-model="services" name="services[]" value="22"> Asciugacapelli</label></li>
               <li><label><input type="checkbox" v-model="services" name="services[]" value="19"> Bar</label></li>
             </ul>
-            <ul class="col-md-2 list-unstyled">
+            <ul class="col-md-3 list-unstyled">
               <li><label><input type="checkbox" v-model="services" name="services[]" value="12"> Cassaforte in camera</label></li>
               <li><label><input type="checkbox" v-model="services" name="services[]" value="2"> Colazione inclusa</label></li>
               <li><label><input type="checkbox" v-model="services" name="services[]" value="14"> Deposito bagagli</label></li>
@@ -165,7 +163,7 @@ export default {
               <li><label><input type="checkbox" v-model="services" name="services[]" value="11"> Minibar</label></li>
               <li><label><input type="checkbox" v-model="services" name="services[]" value="16"> Noleggio biciclette</label></li>
             </ul>
-            <ul class="col-md-2 list-unstyled">
+            <ul class="col-md-3 list-unstyled">
               <li><label><input type="checkbox" v-model="services" name="services[]" value="8"> Palestra</label></li>
               <li><label><input type="checkbox" v-model="services" name="services[]" value="4"> Parcheggio gratuito</label></li>
               <li><label><input type="checkbox" v-model="services" name="services[]" value="7"> Piscina</label></li>
@@ -173,7 +171,7 @@ export default {
               <li><label><input type="checkbox" v-model="services" name="services[]" value="20"> Ristorante</label></li>
               <li><label><input type="checkbox" v-model="services" name="services[]" value="18"> Sala conferenze</label></li>
             </ul>
-            <ul class="col-md-2 list-unstyled">
+            <ul class="col-md-3 list-unstyled">
               <li><label><input type="checkbox" v-model="services" name="services[]" value="5"> Servizio in camera</label></li>
               <li><label><input type="checkbox" v-model="services" name="services[]" value="21"> Servizio lavanderia</label></li>
               <li><label><input type="checkbox" v-model="services" name="services[]" value="15"> Servizio navetta</label></li>
@@ -194,8 +192,7 @@ export default {
       <!-- Messaggio di errore se non ci sono appartamenti con i filtri impostati-->
       <div v-if="noResults" class="alert-overlay">
         <div class="alert-content small-alert">
-          <p>Nessun appartamento trovato per i filtri selezionati.</p>
-          <button @click="closeAlert" class="btn-ok">OK</button>
+          <button @click="closeAlert" class="btn-ok">Nessun appartamento trovato per i filtri selezionati.</button>
         </div>
       </div>
 
@@ -203,7 +200,7 @@ export default {
   <SearchResults :apartments="apartments"/>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '../node_modules/bootstrap/scss/bootstrap.scss';
 
 .list{
@@ -265,5 +262,15 @@ form{
 
 .submit-btn:hover {
   background-color: #480d0d;
+}
+
+.alert-overlay{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.btn-ok {
+  background-color: #480d0d;
+  color: white;
 }
 </style>

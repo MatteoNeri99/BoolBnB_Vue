@@ -70,7 +70,7 @@ export default  {
   <!-- inserire dati come :contatti,,p.iva,img(casa) -->
 </template>
 
-<style lang="scss" >
+<style lang="scss" scoped>
 @use '../node_modules/bootstrap/scss/bootstrap.scss';
 template{
   margin: 0;

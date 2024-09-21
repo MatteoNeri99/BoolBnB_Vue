@@ -1,4 +1,3 @@
-
 <script>
 import axios from 'axios';
 
@@ -57,91 +56,80 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <div class="row justify-content-center">
-      <article class="col-12 p-3 text-center">
-        <div class="card p-3 w-100 styled-header">
-          <!-- Dettagli dell'appartamento -->
-          <img class="card-img-top w-100" :src="apartment.Img" alt="Immagine Appartamento">
-          <div class="card-body">
-            <h5 class="card-title">{{ apartment.Nome }}</h5>
-            <ul class="list-unstyled">
-              <li class="fw-bold"><i class="fa-solid fa-euro-sign"></i> Prezzo: <span class="fw-normal">&euro;{{ apartment.Prezzo }}</span></li>
-              <li class="fw-bold"><i class="fa-solid fa-person-booth"></i> Stanze: <span class="fw-normal">{{ apartment.Stanze }}</span></li>
-              <li class="fw-bold"><i class="fa-solid fa-bed"></i> Letti: <span class="fw-normal">{{ apartment.Letti }}</span></li>
-              <li class="fw-bold"><i class="fa-solid fa-toilet"></i> Bagni: <span class="fw-normal">{{ apartment.Bagni }}</span></li>
-              <li class="fw-bold"><i class="fa-solid fa-ruler"></i> Metri quadrati: <span class="fw-normal">{{ apartment.Metri_quadrati }} metri quadrati</span></li>
-              <li class="fw-bold"><i class="fa-solid fa-location-dot"></i> Indirizzo: <span class="fw-normal">{{ apartment.Indirizzo }}</span></li>
-              <li class="fw-bold"><i class="fa-solid fa-location-dot"></i> Servizi: <span class="fw-normal" v-for="service in apartment.services">{{ service.Nome }}</span></li>
-            </ul>
-          </div>
-          <div class="card-footer">
-            <router-link to="/" style="background-color: #9c191b" class="btn">Torna alla homepage</router-link>
-          </div>
-
-          <!-- Form di invio messaggio -->
-          <div class="card-footer styled-footer d-flex flex-column">
-            <h2 class="footer-title">Invia un messaggio al proprietario</h2>
-            <form @submit.prevent="sendMessage" class="contact-form">
-              <div class="mb-3">
-                <label for="emailInput" class="form-label">Indirizzo Email</label>
-                <input
-                  type="email"
-                  class="form-control email-input"
-                  id="emailInput"
-                  aria-describedby="emailHelp"
-                  v-model="Mail"
-                  :readonly="isLoggedIn"
-                  required
-                  maxlength="50"
-                  placeholder="Inserisci il tuo indirizzo email"
-                >
-                <div id="emailHelp" class="form-text">
-                  Non condivideremo mai la tua email con nessun altro.
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="messageInput" class="form-label">Messaggio</label>
-                <textarea
-                  class="form-control message-input"
-                  id="messageInput"
-                  v-model="Testo"
-                  required
-                  placeholder="Scrivi qui il tuo messaggio"
-                ></textarea>
-              </div>
-              <button type="submit" class="btn-mex">Invia Messaggio</button>
-            </form>
-          </div>
+  <div class="background d-flex justify-content-center">
+    <article class=" p-3 text-center">
+      <div class="card styled-header">
+        <!-- Dettagli dell'appartamento -->
+        <img class="card-img-top w-100" :src="apartment.Img" alt="Immagine Appartamento">
+        <div class="card-body">
+          <h5 class="card-title title pb-3">{{ apartment.Nome }}</h5>
+          <ul class="list-unstyled">
+            <li class="fw-bold pb-2"><i class="fa-solid fa-euro-sign"></i> Prezzo: <span class="fw-normal">&euro;{{ apartment.Prezzo }}</span></li>
+            <li class="fw-bold pb-2"><i class="fa-solid fa-person-booth"></i> Stanze: <span class="fw-normal">{{ apartment.Stanze }}</span></li>
+            <li class="fw-bold pb-2"><i class="fa-solid fa-bed"></i> Letti: <span class="fw-normal">{{ apartment.Letti }}</span></li>
+            <li class="fw-bold pb-2"><i class="fa-solid fa-toilet"></i> Bagni: <span class="fw-normal">{{ apartment.Bagni }}</span></li>
+            <li class="fw-bold pb-2"><i class="fa-solid fa-ruler"></i> Metri quadrati: <span class="fw-normal">{{ apartment.Metri_quadrati }} m<sup>2</sup></span></li>
+            <li class="fw-bold pb-2"><i class="fa-solid fa-location-dot"></i> Indirizzo: <span class="fw-normal">{{ apartment.Indirizzo }}</span></li>
+            <li class="fw-bold pb-2"><i class="fa-solid fa-location-dot"></i> Servizi: <span class="fw-normal" v-for="(service, index) in apartment.services">{{ service.Nome }}<span v-if="index < apartment.services.length - 1">, </span></span></li>
+          </ul>
         </div>
-      </article>
-    </div>
+        <div class="card-footer">
+          <router-link to="/" class="btn">Torna alla homepage</router-link>
+        </div>
+
+        <!-- Form di invio messaggio -->
+        <div class="card-footer styled-footer d-flex flex-column">
+          <h2 class="footer-title">Invia un messaggio al proprietario</h2>
+          <form @submit.prevent="sendMessage" class="contact-form">
+            <div class="mb-3">
+              <label for="emailInput" class="form-label">Indirizzo Email</label>
+              <input
+                type="email"
+                class="form-control email-input"
+                id="emailInput"
+                aria-describedby="emailHelp"
+                v-model="Mail"
+                :readonly="isLoggedIn"
+                required
+                maxlength="50"
+                placeholder="Inserisci il tuo indirizzo email"
+              >
+              <div id="emailHelp" class="form-text">
+                Non condivideremo mai la tua email con nessun altro.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="messageInput" class="form-label">Messaggio</label>
+              <textarea
+                class="form-control message-input"
+                id="messageInput"
+                v-model="Testo"
+                required
+                placeholder="Scrivi qui il tuo messaggio"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn">Invia Messaggio</button>
+          </form>
+        </div>
+      </div>
+    </article>
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '../node_modules/bootstrap/scss/bootstrap.scss';
-.card-body{
+
+.background{
   background-color: #f5c9cb;
-  color: #b5191c;
 }
-.card-img-top {
-  height: 300px;
-  object-fit: cover;
+.card-body{
+  background-color: #d9c7c7;
+  color: black;
 }
 
 .styled-footer {
   padding: 30px;
-  background-color: #d3b4b4;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  margin: 30px auto;
-}
-
-.styled-header {
-  padding: 30px;
-  background-color: #d9c8c8;
+  background-color: #d9c7c7;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   max-width: 600px;
@@ -165,19 +153,6 @@ export default {
   font-weight: 500;
 }
 
-// .email-input, .message-input {
-//   border: 2px solid #ddd;
-//   padding: 12px;
-//   border-radius: 8px;
-//   font-size: 1rem;
-//   transition: border-color 0.3s ease-in-out;
-// }
-
-// .email-input:focus, .message-input:focus {
-//   border-color: #db3545;
-//   box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
-// }
-
 .message-input {
   min-height: 120px;
 }
@@ -186,17 +161,38 @@ export default {
   color: #888;
 }
 
+.title{
+  text-align: center;
+  padding-top: 1rem;
+  color: #9c191b;
+}
+
+.card-img-top {
+  height: 300px;
+  object-fit: cover;
+}
+
+.styled-header {
+  padding: 30px;
+  background-color: #d9c8c8;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 30px auto;
+}
+
 .card-footer{
-  background-color: #9c191b;
+  display: flex;
+  justify-content: center;
 }
 
 .btn {
-  background-color: #9c191b;
+  background-color: #db3545;
   color: white;
 }
 
-.btn-mex {
-  background-color: #9c191b;
+a.btn {
+  background-color: #db3545;
   color: white;
 }
 
