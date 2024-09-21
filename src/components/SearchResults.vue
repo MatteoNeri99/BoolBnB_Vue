@@ -8,10 +8,7 @@ export default {
 
 <template>
   <div class="container">
-    <div class="row">
-      <h1 class="title">
-        Ecco i tuoi risultati
-      </h1>
+    <div class="row d-flex justify-content-center">
       <div class="col-md-4" v-for="apartment in apartments" :key="apartment.id">
         <div class="card p-3 w-100 styled-header">
           <img :src="apartment.Img" class="card-img-top" alt="Apartment Image">
