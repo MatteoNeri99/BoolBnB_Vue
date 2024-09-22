@@ -9,6 +9,8 @@ export default {
       Mail: '',
       Testo: '',
       isLoggedIn: false,
+      showModal: false, 
+      selectedImg: ''   
     };
   },
   methods: {
@@ -47,6 +49,14 @@ export default {
         alert('Errore nell\'invio del messaggio.');
       });
     },
+
+    openModal(imgSrc) {
+      this.selectedImg = imgSrc;  
+      this.showModal = true;      
+    },
+    closeModal() {
+      this.showModal = false;   
+    }
   },
   created() {
     this.getApartment();  // Carica i dettagli dell'appartamento all'apertura della pagina
@@ -60,7 +70,7 @@ export default {
     <article class=" p-3 text-center">
       <div class="card styled-header">
         <!-- Dettagli dell'appartamento -->
-        <img class="card-img-top w-100" :src="apartment.Img" alt="Immagine Appartamento">
+        <img class="card-img-top w-100" :src="apartment.Img" alt="Immagine Appartamento" @click="openModal(apartment.Img)">
         <div class="card-body">
           <h5 class="card-title title pb-3">{{ apartment.Nome }}</h5>
           <ul class="list-unstyled">
@@ -111,6 +121,10 @@ export default {
             <button type="submit" class="btn">Invia Messaggio</button>
           </form>
         </div>
+      </div>
+      <!-- Ingrandimento immagine -->
+      <div v-if="showModal" class="modal-backdrop" @click="closeModal">
+        <img :src="selectedImg" class="modal-image" />
       </div>
     </article>
   </div>
@@ -170,6 +184,7 @@ export default {
 .card-img-top {
   height: 300px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .styled-header {
@@ -195,5 +210,28 @@ a.btn {
   background-color: #db3545;
   color: white;
 }
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.modal-image {
+  max-width: 90%;      
+  max-height: 90%;        
+  object-fit: contain;    
+  border: 2px solid white; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  
+}
+
 
 </style>

@@ -10,18 +10,18 @@ export default {
   <div class="container">
     <div class="row d-flex justify-content-center">
       <div class="col-md-4" v-for="apartment in apartments" :key="apartment.id">
-        <div class="card p-3 w-100 styled-header">
+        <div class="card p-3 w-100 styled-header" style="height:600px">
           <img :src="apartment.Img" class="card-img-top" alt="Apartment Image">
           <div class="card-body">
             <h5 class="card-title text-center pb-3">{{ apartment.Nome }}</h5>
             <ul class="list-unstyled">
               <li class="fw-bold pb-2"><i class="fa-solid fa-euro-sign"></i> Prezzo: <span class="fw-normal">&euro;{{ apartment.Prezzo }}</span></li>
-              <li class="fw-bold pb-2"><i class="fa-solid fa-person-booth"></i> Stanze: <span class="fw-normal">{{ apartment.Stanze }}</span></li>
+              <!-- <li class="fw-bold pb-2"><i class="fa-solid fa-person-booth"></i> Stanze: <span class="fw-normal">{{ apartment.Stanze }}</span></li>
               <li class="fw-bold pb-2"><i class="fa-solid fa-bed"></i> Letti: <span class="fw-normal">{{ apartment.Letti }}</span></li>
               <li class="fw-bold pb-2"><i class="fa-solid fa-toilet"></i> Bagni: <span class="fw-normal">{{ apartment.Bagni }}</span></li>
-              <li class="fw-bold pb-2"><i class="fa-solid fa-ruler"></i> Metri quadrati: <span class="fw-normal">{{ apartment.Metri_quadrati }} m<sup>2</sup></span></li>
+              <li class="fw-bold pb-2"><i class="fa-solid fa-ruler"></i> Metri quadrati: <span class="fw-normal">{{ apartment.Metri_quadrati }} m<sup>2</sup></span></li> -->
               <li class="fw-bold pb-2"><i class="fa-solid fa-location-dot"></i> Indirizzo: <span class="fw-normal">{{ apartment.Indirizzo }}</span></li>
-              <li class="fw-bold pb-2"><i class="fa-solid fa-location-dot"></i> Servizi: <span class="fw-normal" v-for="(service, index) in apartment.services">{{ service.Nome }}<span v-if="index < apartment.services.length - 1">, </span></span></li>
+              <!-- <li class="fw-bold pb-2"><i class="fa-solid fa-location-dot"></i> Servizi: <span class="fw-normal" v-for="(service, index) in apartment.services">{{ service.Nome }}<span v-if="index < apartment.services.length - 1">, </span></span></li> -->
             </ul>
         </div>
         <div class="card-footer">
